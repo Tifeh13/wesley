@@ -71,3 +71,10 @@ input{
     padding-left: 25px;
     font-size: 12px;
 }
+button{
+    padding: 10px;
+    font-size: 15px;
+    font-family: Inter;
+    cursor: pointer;
+    border-radius: 5px;
+}
