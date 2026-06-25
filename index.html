@@ -1,153 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Wesley housing application form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wesley Housing Application</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <form action="">
-    <div class="container">
-        <div class="container-2">
-            <div class="container-3">
-                <div class="main">
-                    <label for="">1. Full Name</label>
-                    <input type="text" required placeholder="First Name" id="fname">
-                    <input type="text" required placeholder="Last Name" id="lname">
-                </div>  
 
-                <div class="main-2">
-                    <label for="">2. Email</label>
-                    <input type="email" required placeholder="example123@gmail.com" id="fname">
-                </div>  
-
-                <div class="main-2">
-                    <label for="">3. Phone Number</label>
-                    <input type="number" required placeholder="0123456789" id="fname">
-                </div>   
-
-                <div class="main-2">
-                    <label for="">4. Current Home Address</label>
-                    <input type="text" required placeholder="" id="fname">
-                </div>  
-
-                <div class="main-2">
-                    <label for="">5. Zipper</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div>   
-
-                <div class="main-2">
-                    <label for="">6. Marital Status</label>
-                    <form action="">
-                        <div class="radio">
-                            <input type="radio" name="maritalStatus" id="married"> 
-                            <label for="married">Married</label>
-                            <input type="radio" name="maritalStatus" id="single">
-                            <label for="single">Single</label>
-                            <input type="radio" name="maritalStatus" id="divorced">
-                            <label for="divorced">Divorced</label>
-                        </div>
-                    </form>
-                </div>
-                
-                
-                <div class="main-2">
-                    <label for="">7. Do you have a car</label>
-                    <p>How many cars?</p>
-                    <input type="number" required placeholder="T" id="fname">
-                </div>  
-                
-                <div class="main-2">
-                    <label for="">8. Do you have a pet</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div>   
-
-                <div class="main-2">
-                    <label for="">9. Occupation</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div>  
-                
-                <div class="main-2">
-                    <label for="">10. How many people will live in the house</label>
-                    <input type="number" required placeholder="T" id="fname">
-                </div>  
-                
-                <div class="main-2">
-                    <label for="">11. What did you do for a living</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div>   
-
-                <div class="main-2">
-                <label for="">12. How long are you looking for?</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div>   
-
-                <div class="main-2">
-                    <label for="">13. Reasons for leaving current home</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div>   
-
-                <div class="main-2">
-                    <label for="">14. Do you smoke?</label>
-                        <input type="text" required placeholder="T" id="fname">
-                </div>  
-                
-                <div class="main-2">
-                    <label for="">15. How soon do you want to pay the security deposit</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div> 
-                
-                <div class="main-2">
-                    <label for="">16. Application fee ($66 refundable)</label>
-                    <form action="">
-                        <div class="radio">
-                            <input type="radio" name="fee" id="zelle"> 
-                            <label for="married">Zelle</label>
-                            <input type="radio" name="fee" id="apple">
-                            <label for="single">Apple Pay</label>
-                            <input type="radio" name="fee" id="chime">
-                            <label for="single">Chime</label>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="main-2">
-                    <label for="">17. How much did you have at hand to secure the property now?</label>
-                    <input type="text" required placeholder="T" id="fname">
-                </div> 
-                <br>
-                <br>
-                <button type="submit" id="submitButton">Submit</button>
-
-                                <!-- Modal -->
-                <div id="myModal" class="modal">
-                    <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Your application has been submitted!</p>
-                    </div>
-                </div>
-
-                  
-                <br>
-                <p>Contact the landlord after filling the form just click on the number <a href="sms:+1(432)225-3696" class="contact-link">
-                    <span>+1(432)225-3696</span>
-                </a></p>
-                <br>
-
-
-
-
-
-
-            </div>
-        </div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="header-title">Housing Application Form</h1>
+      <p class="header-sub">Complete all fields honestly and accurately. Your application is protected under Fair Housing laws.</p>
     </div>
-  </form>
+  </header>
 
+  <!-- FORM -->
+  <main class="form-wrapper">
+    <form
+      action="https://formspree.io/f/xgojaypy"
+      method="POST"
+      id="housingForm"
+      novalidate
+    >
 
+      <!-- SECTION: Personal Information -->
+      <section class="form-section">
+        <div class="section-label">Personal Information</div>
 
-    <script src="./app.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="fname">First Name <span class="req">*</span></label>
+            <input type="text" id="fname" name="First Name" required placeholder="e.g. James" />
+          </div>
+          <div class="field-group">
+            <label for="lname">Last Name <span class="req">*</span></label>
+            <input type="text" id="lname" name="Last Name" required placeholder="e.g. Smith" />
+          </div>
+        </div>
+
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="Email" required placeholder="you@example.com" />
+          </div>
+          <div class="field-group">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="Phone Number" required placeholder="+1 (000) 000-0000" />
+          </div>
+        </div>
+
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="address">Current Home Address <span class="req">*</span></label>
+            <input type="text" id="address" name="Current Address" required placeholder="123 Main St, City, State" />
+          </div>
+          <div class="field-group">
+            <label for="zip">ZIP Code <span class="req">*</span></label>
+            <input type="text" id="zip" name="ZIP Code" required placeholder="e.g. 60601" maxlength="10" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Marital Status <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card">
+              <input type="radio" name="Marital Status" value="Single" required />
+              <span>Single</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="Marital Status" value="Married" />
+              <span>Married</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="Marital Status" value="Divorced" />
+              <span>Divorced</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="Marital Status" value="Widowed" />
+              <span>Widowed</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Employment -->
+      <section class="form-section">
+        <div class="section-label">Employment</div>
+
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="occupation">Current Occupation <span class="req">*</span></label>
+            <input type="text" id="occupation" name="Occupation" required placeholder="e.g. Software Engineer" />
+          </div>
+          <div class="field-group">
+            <label for="employer">Employer / Company Name</label>
+            <input type="text" id="employer" name="Employer" placeholder="e.g. Acme Corp" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="monthly_income">Estimated Monthly Income <span class="req">*</span></label>
+          <input type="text" id="monthly_income" name="Monthly Income" required placeholder="e.g. $3,500" />
+        </div>
+      </section>
+
+      <!-- SECTION: Household Details -->
+      <section class="form-section">
+        <div class="section-label">Household Details</div>
+
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="occupants">How many people will live in the house? <span class="req">*</span></label>
+            <input type="number" id="occupants" name="Number of Occupants" required min="1" max="20" placeholder="e.g. 3" />
+          </div>
+          <div class="field-group">
+            <label for="duration">How long are you looking to stay? <span class="req">*</span></label>
+            <input type="text" id="duration" name="Lease Duration" required placeholder="e.g. 12 months, 2 years" />
+          </div>
+        </div>
+
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="cars">Number of vehicles you own</label>
+            <input type="number" id="cars" name="Number of Vehicles" min="0" max="10" placeholder="0" />
+          </div>
+          <div class="field-group">
+            <label for="pets">Do you have pets? If yes, describe</label>
+            <input type="text" id="pets" name="Pets" placeholder="e.g. 1 small dog, no cats" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Do you smoke? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card">
+              <input type="radio" name="Smoker" value="No" required />
+              <span>No</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="Smoker" value="Yes" />
+              <span>Yes</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="Smoker" value="Occasionally" />
+              <span>Occasionally</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Move-in Details -->
+      <section class="form-section">
+        <div class="section-label">Move-in Details</div>
+
+        <div class="field-group">
+          <label for="reason">Reason for leaving your current home <span class="req">*</span></label>
+          <textarea id="reason" name="Reason for Leaving" required rows="3" placeholder="Briefly explain why you are moving..."></textarea>
+        </div>
+
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="deposit_timeline">How soon can you pay the security deposit? <span class="req">*</span></label>
+            <input type="text" id="deposit_timeline" name="Security Deposit Timeline" required placeholder="e.g. Immediately, Within 7 days" />
+          </div>
+          <div class="field-group">
+            <label for="funds_available">How much do you have available to secure the property now? <span class="req">*</span></label>
+            <input type="text" id="funds_available" name="Funds Available" required placeholder="e.g. $2,000" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="move_in_date">Preferred Move-in Date <span class="req">*</span></label>
+          <input type="date" id="move_in_date" name="Preferred Move-in Date" required />
+        </div>
+      </section>
+
+      <!-- SECTION: Application Fee -->
+      <section class="form-section">
+        <div class="section-label">Application Fee</div>
+
+        <div class="fee-banner">
+          <div class="fee-amount">$61</div>
+          <div class="fee-note">Refundable application fee. Select your preferred payment method below.</div>
+        </div>
+
+        <div class="field-group">
+          <label>Payment Method <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card paypal-card">
+              <input type="radio" name="Payment Method" value="PayPal" required />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7.5 21H4L6.5 3H13C15.8 3 17.5 4.5 17 7.5C16.4 11 13.5 12 11 12H8.5L7.5 21Z" fill="#003087"/>
+                <path d="M9.5 14H12C14.8 14 16.5 15.5 16 18.5C15.4 22 12.5 23 10 23H6.5L7.5 14H9.5Z" fill="#009cde"/>
+              </svg>
+              <span>PayPal</span>
+            </label>
+          </div>
+          <p class="paypal-note">Send your $61 refundable application fee via PayPal before submitting.</p>
+        </div>
+      </section>
+
+      <!-- SECTION: Fair Housing & Certification -->
+      <section class="form-section fair-housing">
+        <div class="section-label">Fair Housing Notice & Applicant Certification</div>
+
+        <div class="notice-box">
+          <h3>Fair Housing Notice</h3>
+          <p>This application is processed in accordance with all applicable federal, state, and local fair housing laws. We do not discriminate based on race, color, religion, sex, national origin, familial status, disability, or any other protected characteristic under applicable law.</p>
+
+          <h4>Applicable Housing Laws</h4>
+          <ul>
+            <li>Fair Housing Act</li>
+            <li>Fair Credit Reporting Act</li>
+            <li>Violence Against Women Act (for covered housing providers)</li>
+            <li>Applicable state and local housing and landlord-tenant laws</li>
+          </ul>
+
+          <h3>Applicant Certification</h3>
+          <p>I certify that all information provided in this application is true and complete. I understand that false, misleading, or incomplete information may result in denial of my application or termination of any lease agreement. I authorize the landlord, property manager, or their agents to verify the information provided, including employment, rental history, references, and credit information where permitted by law.</p>
+        </div>
+
+        <div class="field-row two-col">
+          <div class="field-group">
+            <label for="signature">Printed Full Name <span class="req">*</span></label>
+            <input type="text" id="signature" name="Applicant Signature" required placeholder="Type your full legal name" />
+          </div>
+          <div class="field-group">
+            <label for="sign_date">Date <span class="req">*</span></label>
+            <input type="date" id="sign_date" name="Signature Date" required />
+          </div>
+        </div>
+
+        <!-- HAND-DRAWN SIGNATURE PAD -->
+        <div class="field-group">
+          <label>Hand-Drawn Signature <span class="req">*</span></label>
+          <div class="sig-pad-wrapper" id="sigPadWrapper">
+            <canvas id="sigCanvas" width="700" height="160" aria-label="Signature pad — draw your signature here"></canvas>
+            <span class="sig-placeholder" id="sigPlaceholder">Draw your signature here</span>
+          </div>
+          <div class="sig-actions">
+            <button type="button" id="clearSig" class="btn-sig-clear">Clear</button>
+            <span class="sig-hint">Use mouse or finger to sign above</span>
+          </div>
+          <!-- Hidden input carries the image data to Formspree -->
+          <input type="hidden" id="signatureData" name="Signature Image (base64)" />
+        </div>
+
+        <label class="checkbox-card">
+          <input type="checkbox" name="Certification Agreement" value="Agreed" required />
+          <span>I have read, understood, and agree to the Applicant Certification and Fair Housing Notice above.</span>
+        </label>
+      </section>
+
+      <!-- SUBMIT -->
+      <div class="submit-row">
+        <button type="submit" class="btn-submit" id="submitBtn">
+          Submit Application
+        </button>
+        <p class="contact-hint">
+          After submitting, contact the landlord directly:
+          <a href="sms:+17087302617" class="contact-link">+1 (708) 730-2617</a>
+        </p>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- SUCCESS MODAL -->
+  <div id="successModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-box">
+      <div class="modal-icon">✓</div>
+      <h2 id="modalTitle">Application Submitted!</h2>
+      <p>Thank you for applying. Your application has been received and will be reviewed shortly. You may also reach the landlord at <a href="sms:+17087302617">+1 (708) 730-2617</a>.</p>
+      <button class="btn-close-modal" id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
