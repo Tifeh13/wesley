@@ -410,6 +410,9 @@ textarea.invalid {
   box-shadow: var(--shadow-lg);
   animation: modalIn 0.25s ease;
 }
+.chime-card {
+  border-color: #00C244;
+}
 
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.93) translateY(12px); }
