@@ -181,14 +181,63 @@
         </div>
       </section>
 
+      <!-- SECTION: Appointment Scheduling -->
+      <section class="form-section">
+        <div class="section-label">Schedule Your Viewing Appointment</div>
+        <p class="section-intro">Pick the date and time that works best for you — no need to call or email, just choose below.</p>
+
+        <div class="field-group">
+          <label for="appt_date">Appointment Date <span class="req">*</span></label>
+          <input type="date" id="appt_date" name="Appointment Date" required />
+        </div>
+
+        <div class="field-group">
+          <label>Preferred Time <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card">
+              <input type="radio" name="Appointment Time" value="Morning (9AM - 12PM)" required />
+              <span>Morning (9AM–12PM)</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="Appointment Time" value="Afternoon (12PM - 3PM)" />
+              <span>Afternoon (12PM–3PM)</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="Appointment Time" value="Evening (3PM - 6PM)" />
+              <span>Evening (3PM–6PM)</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
       <!-- SECTION: Application Fee -->
       <section class="form-section">
         <div class="section-label">Application Fee</div>
 
         <div class="fee-banner">
-          <div class="fee-amount">$65</div>
+          <div class="fee-breakdown">
+            <div class="fee-line">
+              <span class="fee-line-label">Application Fee</span>
+              <span class="fee-line-amount">$65</span>
+            </div>
+            <div class="fee-line" id="cleaningFeeLine" hidden>
+              <span class="fee-line-label">Cleaning Fee</span>
+              <span class="fee-line-amount">$80</span>
+            </div>
+            <div class="fee-line fee-line-total">
+              <span class="fee-line-label">Total Due</span>
+              <span class="fee-line-amount" id="totalFeeAmount">$65</span>
+            </div>
+          </div>
           <div class="fee-note">Refundable application fee. Select your preferred payment method below.</div>
         </div>
+
+        <label class="checkbox-card">
+          <input type="checkbox" id="cleaningFeeCheckbox" name="Cleaning Service" value="Yes - $80" />
+          <span>Add move-in cleaning service for <strong>$80</strong> (optional)</span>
+        </label>
+
+        <input type="hidden" id="totalDueField" name="Total Amount Due" value="$65" />
 
         <div class="field-group">
           <label>Payment Method <span class="req">*</span></label>
@@ -294,10 +343,26 @@
       <div class="modal-icon">✓</div>
       <h2 id="modalTitle">Application Submitted!</h2>
       <p>Thank you for applying. Your application has been received and will be reviewed shortly. You may also reach the landlord at <a href="sms:+17087302617">+1 (708) 730-2617</a>.</p>
-      <button class="btn-close-modal" id="closeModal">Close</button>
+
+      <!-- RECEIPT (captured for the downloadable image) -->
+      <div class="receipt-card" id="receiptCard">
+        <div class="receipt-header">Wesley Housing — Application Receipt</div>
+        <div class="receipt-row"><span>Applicant</span><span id="rcptName">—</span></div>
+        <div class="receipt-row"><span>Appointment Date</span><span id="rcptApptDate">—</span></div>
+        <div class="receipt-row"><span>Appointment Time</span><span id="rcptApptTime">—</span></div>
+        <div class="receipt-row"><span>Application Fee</span><span>$65</span></div>
+        <div class="receipt-row" id="rcptCleaningRow" hidden><span>Cleaning Fee</span><span>$80</span></div>
+        <div class="receipt-row receipt-total"><span>Total Due</span><span id="rcptTotal">$65</span></div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-download" id="downloadReceiptBtn">Download as Image</button>
+        <button class="btn-close-modal" id="closeModal">Close</button>
+      </div>
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -124,6 +124,13 @@ body {
   border-bottom: 2px solid var(--border);
 }
 
+.section-intro {
+  font-size: 0.875rem;
+  color: var(--slate);
+  margin-top: -12px;
+  margin-bottom: 20px;
+}
+
 /* ── FIELD LAYOUT ────────────────────────────────────────── */
 .field-group {
   display: flex;
@@ -290,6 +297,46 @@ textarea.invalid {
   font-size: 0.875rem;
   color: rgba(255,255,255,0.80);
   line-height: 1.5;
+}
+
+/* ── FEE BREAKDOWN (application + optional cleaning fee) ── */
+.fee-breakdown {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fee-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.fee-line-amount {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.fee-line-total {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.fee-line-total .fee-line-label {
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.fee-line-total .fee-line-amount {
+  font-size: 1.6rem;
+  color: var(--gold);
 }
 
 /* ── FAIR HOUSING NOTICE ─────────────────────────────────── */
@@ -468,6 +515,78 @@ textarea.invalid {
 
 .btn-close-modal:hover { background: var(--navy-mid); }
 
+/* ── RECEIPT CARD (also captured for the download-as-image) ── */
+.receipt-card {
+  background: var(--ivory);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.receipt-header {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--slate);
+  padding: 5px 0;
+}
+
+.receipt-row span:last-child {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.receipt-total {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.receipt-total span {
+  color: var(--navy) !important;
+  font-size: 0.95rem;
+}
+
+/* ── MODAL ACTIONS ───────────────────────────────────────── */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-download {
+  background: var(--white);
+  color: var(--navy);
+  border: 1.5px solid var(--gold);
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-download:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 640px) {
   .site-header { padding: 40px 20px 36px; }
@@ -490,6 +609,10 @@ textarea.invalid {
   .btn-submit { width: 100%; padding: 16px 24px; }
 
   .modal-box { padding: 36px 24px; }
+
+  .modal-actions { flex-direction: column; }
+  .btn-download,
+  .btn-close-modal { width: 100%; }
 }
 
 @media (max-width: 420px) {
