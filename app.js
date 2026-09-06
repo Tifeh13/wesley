@@ -32,7 +32,7 @@
   }
 
   /* ── Cleaning fee toggle: live total calculation ── */
-  const APPLICATION_FEE = 65;
+  const APPLICATION_FEE = 75;
   const CLEANING_FEE    = 80;
 
   const cleaningCheckbox = document.getElementById('cleaningFeeCheckbox');
