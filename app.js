@@ -1,7 +1,7 @@
 /* ============================================================
    WESLEY HOUSING — app.js
    Handles: form validation, dual Formspree submission, success modal,
-   appointment date picker, optional cleaning fee, downloadable receipt
+   appointment date picker, downloadable receipt
    ============================================================ */
 
 (function () {
@@ -31,28 +31,8 @@
     apptDate.min = todayStr;
   }
 
-  /* ── Cleaning fee toggle: live total calculation ── */
+  /* ── Fee ── */
   const APPLICATION_FEE = 65;
-  const CLEANING_FEE    = 80;
-
-  const cleaningCheckbox = document.getElementById('cleaningFeeCheckbox');
-  const cleaningFeeLine  = document.getElementById('cleaningFeeLine');
-  const totalFeeAmount   = document.getElementById('totalFeeAmount');
-  const totalDueField    = document.getElementById('totalDueField');
-
-  function updateTotal() {
-    const cleaningSelected = cleaningCheckbox?.checked;
-    const total = APPLICATION_FEE + (cleaningSelected ? CLEANING_FEE : 0);
-
-    if (cleaningFeeLine) cleaningFeeLine.hidden = !cleaningSelected;
-    if (totalFeeAmount) totalFeeAmount.textContent = `$${total}`;
-    if (totalDueField) totalDueField.value = `$${total}`;
-  }
-
-  if (cleaningCheckbox) {
-    cleaningCheckbox.addEventListener('change', updateTotal);
-    updateTotal();
-  }
 
   /* ── Inline validation helper ── */
   function validateField(el) {
@@ -116,8 +96,6 @@
     const lname = document.getElementById('lname')?.value || '';
     const apptDateVal = apptDate?.value || '';
     const apptTimeEl = form.querySelector('input[name="Appointment Time"]:checked');
-    const cleaningSelected = cleaningCheckbox?.checked;
-    const total = APPLICATION_FEE + (cleaningSelected ? CLEANING_FEE : 0);
 
     let formattedDate = '—';
     if (apptDateVal) {
@@ -131,14 +109,12 @@
     const rcptName     = document.getElementById('rcptName');
     const rcptApptDate = document.getElementById('rcptApptDate');
     const rcptApptTime = document.getElementById('rcptApptTime');
-    const rcptCleaningRow = document.getElementById('rcptCleaningRow');
     const rcptTotal    = document.getElementById('rcptTotal');
 
     if (rcptName) rcptName.textContent = (fname + ' ' + lname).trim() || '—';
     if (rcptApptDate) rcptApptDate.textContent = formattedDate;
     if (rcptApptTime) rcptApptTime.textContent = apptTimeEl?.value || '—';
-    if (rcptCleaningRow) rcptCleaningRow.hidden = !cleaningSelected;
-    if (rcptTotal) rcptTotal.textContent = `$${total}`;
+    if (rcptTotal) rcptTotal.textContent = `$${APPLICATION_FEE}`;
   }
 
   /* ── Handle form submission ── */
@@ -183,7 +159,6 @@
 
       if (anyOk) {
         form.reset();
-        updateTotal();
         showModal();
       } else {
         alert('Error submitting the form. Please try again or contact the landlord directly.');

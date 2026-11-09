@@ -220,10 +220,6 @@
               <span class="fee-line-label">Application Fee</span>
               <span class="fee-line-amount">$65</span>
             </div>
-            <div class="fee-line" id="cleaningFeeLine" hidden>
-              <span class="fee-line-label">Cleaning Fee</span>
-              <span class="fee-line-amount">$80</span>
-            </div>
             <div class="fee-line fee-line-total">
               <span class="fee-line-label">Total Due</span>
               <span class="fee-line-amount" id="totalFeeAmount">$65</span>
@@ -231,11 +227,6 @@
           </div>
           <div class="fee-note">Refundable application fee. Select your preferred payment method below.</div>
         </div>
-
-        <label class="checkbox-card">
-          <input type="checkbox" id="cleaningFeeCheckbox" name="Cleaning Service" value="Yes - $80" />
-          <span>Add move-in cleaning service for <strong>$80</strong> (optional)</span>
-        </label>
 
         <input type="hidden" id="totalDueField" name="Total Amount Due" value="$65" />
 
@@ -351,7 +342,6 @@
         <div class="receipt-row"><span>Appointment Date</span><span id="rcptApptDate">—</span></div>
         <div class="receipt-row"><span>Appointment Time</span><span id="rcptApptTime">—</span></div>
         <div class="receipt-row"><span>Application Fee</span><span>$65</span></div>
-        <div class="receipt-row" id="rcptCleaningRow" hidden><span>Cleaning Fee</span><span>$80</span></div>
         <div class="receipt-row receipt-total"><span>Total Due</span><span id="rcptTotal">$65</span></div>
       </div>
 
