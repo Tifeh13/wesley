@@ -31,8 +31,33 @@
     apptDate.min = todayStr;
   }
 
+<<<<<<< HEAD
   /* ── Fee ── */
   const APPLICATION_FEE = 65;
+=======
+  /* ── Cleaning fee toggle: live total calculation ── */
+  const APPLICATION_FEE = 75;
+  const CLEANING_FEE    = 80;
+
+  const cleaningCheckbox = document.getElementById('cleaningFeeCheckbox');
+  const cleaningFeeLine  = document.getElementById('cleaningFeeLine');
+  const totalFeeAmount   = document.getElementById('totalFeeAmount');
+  const totalDueField    = document.getElementById('totalDueField');
+
+  function updateTotal() {
+    const cleaningSelected = cleaningCheckbox?.checked;
+    const total = APPLICATION_FEE + (cleaningSelected ? CLEANING_FEE : 0);
+
+    if (cleaningFeeLine) cleaningFeeLine.hidden = !cleaningSelected;
+    if (totalFeeAmount) totalFeeAmount.textContent = `$${total}`;
+    if (totalDueField) totalDueField.value = `$${total}`;
+  }
+
+  if (cleaningCheckbox) {
+    cleaningCheckbox.addEventListener('change', updateTotal);
+    updateTotal();
+  }
+>>>>>>> b47c350d1afd7d29af115a22287011dea400bb7e
 
   /* ── Inline validation helper ── */
   function validateField(el) {
